@@ -54,7 +54,7 @@ class CheckLockedCommands extends Command
                          $this->line('<fg=default>Run <fg=cyan>php artisan lockout:lock '.$username.'<fg=default> to lock account.');  
             }   
                        
-                // $this->line('<fg=yellow>Valid input is  lock, unlock, and attemps.');
+                // $this->line('<fg=yellow>Valid input is  lock, unlock, and attempts.');
         
     }
     

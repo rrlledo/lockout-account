@@ -7,7 +7,7 @@ return [
     |--------------------------------------------------------------------------
     | limit failed login, default : 3
     */
-    'login_attemps' => env('LOGIN_ATTEMPS', 3),
+    'login_attempts' => env('LOGIN_ATTEMPTS', 3),
     /*
     |--------------------------------------------------------------------------
     | Logging

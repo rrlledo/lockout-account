@@ -42,15 +42,15 @@ class AttempsCommands extends Command
         $ret = $core->check_account($this->argument('username'));
             $table = new Table($this->output);
                 $read_enc = json_decode( $ret);
-                $time = $read_enc->last_attemps;
-                $attemps = $read_enc->attemps;
+                $time = $read_enc->last_attempts;
+                $attempts = $read_enc->attempts;
                 $ip = $read_enc->ip;
                 $table->setRows([
-                        ['<fg=yellow>Login attemps',  $attemps],
-                        ['<fg=yellow>Last login attemps',$time],
+                        ['<fg=yellow>Login attempts',  $attempts],
+                        ['<fg=yellow>Last login attempts',$time],
                         ['<fg=yellow>Last IP Address',empty(end($ip))? "unknown":end($ip)],]);
                         $table->render();
-                // $this->line('<fg=yellow>Valid input is  lock, unlock, and attemps.');
+                // $this->line('<fg=yellow>Valid input is  lock, unlock, and attempts.');
         
     }
     

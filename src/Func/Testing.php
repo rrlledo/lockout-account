@@ -94,12 +94,12 @@ class Testing extends Core {
     }
 //////Config
     private function confLoginAttemps(){
-            if(is_numeric(config('irfa.lockout.login_attemps'))){
-                $this->ret['login_attemps'] = '<fg=green>OK';
+            if(is_numeric(config('irfa.lockout.login_attempts'))){
+                $this->ret['login_attempts'] = '<fg=green>OK';
             } else{
 
                 $this->ret['err'] +=1;
-                $this->ret['login_attemps'] ='<fg=red>Must be a number';
+                $this->ret['login_attempts'] ='<fg=red>Must be a number';
             }
     }
 

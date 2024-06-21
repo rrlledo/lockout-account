@@ -28,7 +28,7 @@ class Core extends Variable
     }
 
     /**
-     * write login attemps if login attemp is triggered.
+     * write login attempts if login attempt is triggered.
      *
      * @param string $username
      * @return void
@@ -52,14 +52,14 @@ class Core extends Variable
             if(!$this->checkIp($ip_list,$this->ip)){
                 array_push($ip_list,$this->ip);
             }
-            if($get->attemps == "lock"){
+            if($get->attempts == "lock"){
                 $login_fail = "lock";
             } else{
-                $login_fail = $get->attemps+1;
+                $login_fail = $get->attempts+1;
             }
         }
         
-            $content = ['username' => $this->input,'attemps' => $login_fail,'ip' => isset($ip_list)?$ip_list:[$this->ip],'last_attemps' => date("Y-m-d H:i:s",time())];
+            $content = ['username' => $this->input,'attempts' => $login_fail,'ip' => isset($ip_list)?$ip_list:[$this->ip],'last_attempts' => date("Y-m-d H:i:s",time())];
             File::put($this->path,json_encode($content));
             if(File::exists($this->path)){
                 chmod($this->path,0755);
@@ -80,7 +80,7 @@ class Core extends Variable
     }
 
     /**
-     * Logging Failed Login attemps
+     * Logging Failed Login attempts
      * stored file in storage/logs/laravel.log
      *
      * @param  string  $middleware
@@ -88,7 +88,7 @@ class Core extends Variable
      */
     protected function logging($middleware = "WEB") {
         if (config('irfa.lockout.logging')) {
-                    Log::notice($middleware." | Login attemps fail | "."username : ".Request::input(config('irfa.lockout.input_name'))." | ipAddress : ".Request::ip()." | userAgent : ".$_SERVER['HTTP_USER_AGENT'].PHP_EOL);
+                    Log::notice($middleware." | Login attempts fail | "."username : ".Request::input(config('irfa.lockout.input_name'))." | ipAddress : ".Request::ip()." | userAgent : ".$_SERVER['HTTP_USER_AGENT'].PHP_EOL);
             }
     }
 
@@ -104,7 +104,7 @@ class Core extends Variable
         if(File::exists($this->path))
         {
             $get = json_decode(File::get($this->path));
-            if($get->attemps > $this->attemps || $get->attemps == "lock"){
+            if($get->attempts > $this->attempts || $get->attempts == "lock"){
                 return true;
             } else{
                 return false;
@@ -115,7 +115,7 @@ class Core extends Variable
     }
 
     /**
-     * Show message if failed x attemps
+     * Show message if failed x attempts
      *
      * @return mixed
      */
@@ -128,7 +128,7 @@ class Core extends Variable
     }
 
     /**
-     * Locked account  if max attemps reached
+     * Locked account  if max attempts reached
      *
      * @return boolean
      */
@@ -141,10 +141,10 @@ class Core extends Variable
         if(File::exists($this->path))
         {
                 $get = json_decode(File::get($this->path));
-                if($get->attemps == "lock"){
+                if($get->attempts == "lock"){
                 return true;
                 }
-                if($get->attemps > $this->attemps){
+                if($get->attempts > $this->attempts){
                    
                     return true;
                 } else {
@@ -284,7 +284,7 @@ class Core extends Variable
             }
                 $login_fail = "lock";
         
-                $content = ['username' => $this->input,'attemps' => $login_fail,'ip' => [$sapi],'last_attemps' => date("Y-m-d H:i:s",time())];
+                $content = ['username' => $this->input,'attempts' => $login_fail,'ip' => [$sapi],'last_attempts' => date("Y-m-d H:i:s",time())];
                 File::put($this->path,json_encode($content));
                 if(File::exists($this->path)){
                 chmod($this->path,0755);

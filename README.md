@@ -47,7 +47,7 @@ Open .env file and add this line (optional)
 
 ```php
 ....
-LOGIN_ATTEMPS=3
+LOGIN_ATTEMPTS=3
 LOGGING=true
     
 ```

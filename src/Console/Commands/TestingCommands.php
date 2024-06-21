@@ -109,7 +109,7 @@ class TestingCommands extends Command
                 $table = new Table($this->output);
                 $this->line('<fg=cyan>Testing Config:');
             $table->setRows([
-                        ['<fg=default>login_attemps',isset($res['login_attemps']) ? $res['login_attemps']:"<fg=red>Not Found"],
+                        ['<fg=default>login_attempts',isset($res['login_attempts']) ? $res['login_attempts']:"<fg=red>Not Found"],
                         ['<fg=default>logging',isset($res['logging']) ? $res['logging']:"<fg=red>Not Found"],
                         ['<fg=default>input_name',isset($res['input_name']) ? $res['input_name']:"<fg=red>Not Found"],
                         ['<fg=default>redirect_url',isset($res['redirect_url']) ? $res['redirect_url']:"<fg=red>Not Found"],

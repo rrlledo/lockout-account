@@ -4,7 +4,7 @@
     "type": "package",
     "license": "MIT",
     "version": "v1.0.3",
-    "keywords": ["laravel", "lockout", "account", "login lock", "account locked","security","attemps login","account lock"],
+    "keywords": ["laravel", "lockout", "account", "login lock", "account locked","security","attempts login","account lock"],
     "authors": [
         {
             "name": "Irfa A",
